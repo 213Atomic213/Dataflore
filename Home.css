@@ -1,0 +1,360 @@
+
+/* Ma palette de couleur */
+:root {
+  --rose: #e6e0f8;
+  --violet: #5d3b8c;
+  --blanc: #ffffff;
+  --gris: #f8e8f8;
+  --ombre: rgba(0, 0, 0, 0.1);
+  --cyan: #2277bb;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--gris);
+  color: var(--violet);
+}
+
+.header {
+  background-color: var(--violet);
+  color: var(--blanc);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--cyan);
+}
+
+.header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+/* Acceuil Galerie Contact */
+.header a {
+  color: var(--blanc);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  padding: 40px 20px;
+}
+
+/* Bienvenue */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: var(--rose);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px var(--ombre);
+  border: 4px solid var(--cyan);
+  border-radius: 15px;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: var(--violet);
+  color: var(--blanc);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #462f6a;
+  box-shadow: 0 4px 8px var(--ombre);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap; /* Permet de passer à la ligne suivante quand il y a trop de cartes */
+  justify-content: space-between; /* Utilise l'espace de manière égale entre les cartes */
+  gap: 20px;  /* Espace entre les cartes */
+}
+
+.flower-icon {
+  width: 20px;  /* Ajuste la taille de l'icône */
+  height: 20px;
+  margin-right: 5px;  /* Espace entre l'icône et le texte */
+  vertical-align: middle;  /* Aligner l'icône avec le texte */
+}
+/* Chaque carte occupe un espace de 24% pour laisser de l'espace entre elles */
+.card {
+  background-color: var(--blanc);
+  padding: 20px;
+  flex-basis: 20%; /* Occupe 24% de la largeur du conteneur */
+  min-width: 200px; /* S'assurer que les cartes ne deviennent pas trop petites */
+  border: 2px solid var(--violet);
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 6px var(--ombre);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  padding: 18px;
+  border: 4px solid var(--cyan);
+}
+
+.footer {
+  background-color: var(--violet);
+  color: var(--blanc);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 4px solid var(--cyan);
+}
+
+/* Animation d'apparition du texte dans le footer */
+#about-text.hidden {
+  display: none;
+  opacity: 0;
+}
+
+#about-text.visible {
+  display: block;
+  opacity: 1;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation d'élargissement temporaire du footer */
+.footer.expanded {
+  padding-bottom: 75px; /* Augmente l'espace en bas temporairement */
+  animation: expandFooter 0.5s forwards;
+}
+
+/* Animation d'élargissement */
+@keyframes expandFooter {
+  0% {
+    padding-bottom: 20px;  /* Hauteur initiale du footer */
+  }
+  100% {
+    padding-bottom: 75px; /* Hauteur agrandie du footer */
+  }
+}
+
+/* Après l'animation, rétrécir progressivement le footer */
+@keyframes shrinkFooter {
+  0% {
+    padding-bottom: 75px;
+  }
+  100% {
+    padding-bottom: 20px;  /* Retour à la taille d'origine */
+  }
+}
+
+
+/* Modal (popup) */
+.modal {
+  display: none; /* Modal caché par défaut */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in-out; /* Animation d'apparition */
+}
+
+/* Animation d'apparition pour le modal */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation de fermeture du modal */
+@keyframes shrinkToCard {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Modification du modal lorsque la fermeture est en cours */
+.modal.closing .modal-content {
+  animation: shrinkToCard 0.5s forwards; /* Animation de fermeture */
+}
+
+/* Bouton de fermeture */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--violet);
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+
+/* Contenu du modal (centré) */
+.modal-content {
+  background-color: var(--blanc);
+  padding: 20px;
+  border: 4px solid var(--cyan);
+  border-radius: 20px;
+  width: 80%;  /* Ajustement de la largeur pour plus de responsivité */
+  max-width: 1500px; /* Taille maximale */
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  text-align: center;
+  transform: scale(0.8);
+  opacity: 0;
+  transform-origin: center top;
+  animation: growFromCard 0.5s forwards, fadeIn 0.5s ease-in-out; /* Combinaison d'animations */
+}
+
+/* Animation d'agrandissement depuis la carte */
+@keyframes growFromCard {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    height: auto;
+  }
+}
+
+.modal-images-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: center; /* CENTRE les colonnes quand y'en a moins */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-images-container img {
+  width: 100%;      /* Les images supplémentaires remplissent leur conteneur */
+  max-width: 200px; /* Limite la taille des images supplémentaires */
+  height: auto;     /* Assurer que l'image garde son ratio */
+  aspect-ratio: 1;  /* Toujours garder le ratio 1:1 */
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  margin: 0 auto;   /* Centrer les images supplémentaires */
+}
+
+/* Effet de zoom uniquement sur les images non agrandies */
+.modal-images-container img {
+  transition: transform 0.2s ease-in-out;
+}
+
+
+.modal-images-container img {
+  transition: transform 0.2s ease-in-out;
+}
+
+.modal-images-container img:not(.enlarged):hover {
+  transform: scale(1.1); /* Zoom légèrement sur l'image au survol */
+}
+
+/* Style pour les images agrandies */
+.enlarged {
+  transform: scale(2);
+  transition: transform 0.3s ease;
+}
+
+.enlarged:hover {
+  transform: scale(2); /* L'image agrandie ne sera pas affectée par le hover */
+}
+
+/* Animation d'agrandissement de l'image */
+@keyframes enlargeImage {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animation de réduction de l'image */
+@keyframes shrinkImage {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Styles de l'image agrandie */
+.enlarged {
+  transform: scale(2);
+  transition: transform 0.3s ease;
+}
+
+
+
+
+/* Scrollbar personnalisée - style floral doux */
+::-webkit-scrollbar {
+  width: 15px;
+  max-height: 20%;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #f3e6f8, #e6f0f8); /* Rose pâle vers bleu très clair */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #c183ff, #89b6ff, #f7a8e0); /* Violet doux, bleu pastel, rose clair */
+  border-radius: 10px;
+  border: 2px solid #ffffff; /* Pour un léger effet bordé */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5d3b8c, #2277bb, #f38dc9); /* Un peu plus saturé au survol */
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
