@@ -10,7 +10,7 @@ const cards = document.querySelectorAll(".card");
 
 modal.style.display = "none";
 
-// Ouvre le modal au clic sur une carte
+											// Ouverture du modal au clic sur une carte
 cards.forEach(card => {
   card.addEventListener("click", () => {
     const title = card.getAttribute("data-title");
@@ -36,6 +36,7 @@ cards.forEach(card => {
         imgElement.src = imageUrl.trim();
         imgElement.alt = title;
         imgElement.classList.add("modal-image");
+		document.body.classList.add('modal-open');
         modalImagesContainer.appendChild(imgElement);
       });
     }
@@ -44,21 +45,42 @@ cards.forEach(card => {
   });
 });
 
-// Ferme le modal au clic sur la croix
+
+						// Fermeture via le bouton close
 closeModal.addEventListener("click", closeModalFunction);
 
 function closeModalFunction() {
+  // Ajoute l'animation de fermeture
   modal.classList.add("closing");
+  document.body.classList.remove('modal-open');
+  
+  // Masquer le modal après l'animation
   setTimeout(() => {
-    modal.style.display = "none";
-    modal.classList.remove("closing");
-    modalImg.classList.remove("enlarged");
+    modal.style.display = "none"; // Masquer le modal
+    modal.classList.remove("closing"); // Retirer la classe 'closing' une fois l'animation terminée
+    modalImg.classList.remove("enlarged"); // Réinitialiser l'état agrandi
     modalImagesContainer.querySelectorAll('img').forEach(img => {
       img.classList.remove("enlarged");
       img.classList.remove("shrink");
     });
-  }, 500);
+  }, 500); // Temps d'animation pour la fermeture
 }
+
+						// Fermeture du modal via la touche "Espace"
+window.addEventListener("keydown", (e) => {
+  if (e.key === " " || e.key === "Spacebar") {
+    e.preventDefault(); // Empêche le comportement par défaut de l'espace
+    closeModalFunction(); // Appel de la fonction pour fermer le modal
+  }
+});
+
+
+
+
+
+
+
+
 
 // Gestion du clic sur les images dans le modal
 modalImagesContainer.addEventListener("click", (e) => {
@@ -84,16 +106,6 @@ modalImagesContainer.addEventListener("click", (e) => {
     e.stopPropagation(); // Ne propage pas ce clic plus loin
   }
 });
-
-// Clic global : ferme une image agrandie, peu importe où on clique
-document.addEventListener("click", () => {
-  const enlargedImg = modalImagesContainer.querySelector("img.enlarged");
-  if (enlargedImg) {
-    enlargedImg.classList.remove("enlarged");
-    enlargedImg.classList.add("shrink");
-  }
-});
-
 
 // Si clic ailleurs dans le modal → rétrécit l’image agrandie (sans fermer le modal)
 modal.addEventListener("click", () => {
@@ -138,35 +150,4 @@ document.getElementById("about-link").addEventListener("click", function(e) {
 });
 
 
-
-// Ferme le modal avec l'animation de fermeture au clic sur la croix
-closeModal.addEventListener("click", closeModalFunction);
-
-// Fonction pour fermer le modal avec animation
-function closeModalFunction() {
-  // Ajoute l'animation de fermeture
-  modal.classList.add("closing");
-  
-  // Masquer le modal après l'animation
-  setTimeout(() => {
-    modal.style.display = "none"; // Masquer le modal
-    modal.classList.remove("closing"); // Retirer la classe 'closing' une fois l'animation terminée
-    modalImg.classList.remove("enlarged"); // Réinitialiser l'état agrandi
-    modalImagesContainer.querySelectorAll('img').forEach(img => {
-      img.classList.remove("enlarged");
-      img.classList.remove("shrink");
-    });
-  }, 500); // Temps d'animation pour la fermeture
-}
-
-// Événement de fermeture du modal via la touche "Espace"
-window.addEventListener("keydown", (e) => {
-  if (e.key === " " || e.key === "Spacebar") {
-    e.preventDefault(); // Empêche le comportement par défaut de l'espace
-    closeModalFunction(); // Appel de la fonction pour fermer le modal
-  }
-});
-
-// Événement de fermeture via le bouton "close"
-closeModal.addEventListener("click", closeModalFunction);
 
