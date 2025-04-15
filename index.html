@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataFlore</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<label class="theme-toggle" id="themeToggle">
+		<input type="checkbox" />
+		<span class="icon"></span>
+	</label>
+
+	<header class="header">
+		<img id="logo" src="icone/logo.svg" alt="Logo"/>
+		<nav>
+		<ul>
+			<li><a href="#">Accueil</a></li>
+			<li><a href="#">Galerie</a></li>
+			<li><a href="#" id="about-link">À propos</a></li>
+		</ul>
+		</nav>
+	</header>
+
+	<main class="main-content">
+		<section class="hero">
+			<img class="hero-img-left" src="icone/leaves.png"/>
+			<h2>Bienvenue dans l'univers des fleurs 🌸</h2>
+			<p>Mettre une description ici</p>
+			<a href="#" class="btn">Découvrir</a>
+			<img class="hero-img-right" src="icone/leaves.png"/>
+		</section>
+
+		<div class="search-container">
+			<div class="search-flex">
+				<img class="icone search-img" src="icone/jasmin.png"/>
+    
+				<div class="search-wrapper">
+					<img src="icone/search_logo.svg" alt="Recherche" class="search-icon">
+					<input type="text" id="search-input" placeholder="Rechercher une fleur...">
+					<span class="clear-btn" id="clear-search">&times;</span>
+					<div id="autocomplete-list" class="autocomplete-list"></div>
+				</div>
+    
+				<img class="icone search-img" src="icone/jasmin.png"/>
+			</div>
+			<p id="no-result" class="no-result">Aucun résultat trouvé.</p>
+		</div>
+	
+
+		<section class="features">
+			<div class="card" 
+				data-title="Cératostigma"
+				data-images="photos/ceratostigma.jpg, photos/ceratostigma_2.jpg"
+				data-text="Le Cératostigma trouve ses racines en Asie, principalement en Chine et dans l'Himalaya. Il a été découvert et introduit en Europe au XIXe siècle par des botanistes fascinés par sa résilience et sa capacité à prospérer dans des conditions souvent difficiles."
+				data-etymologie="Du grec ancien κέρας 'corne' et στίγμα 'marque', ce nom lui a été attribué par référence aux structures en forme de cornicule du stigmate du pistil."
+				data-signification="Le Cératostigma est souvent associé à la force et à la persévérance. Sa floraison tardive, durant les mois plus frais, symbolise la capacité à briller même dans les moments les plus difficiles."
+				data-floraison="août novembre">
+				<h3><img src="icone/blue.png" class="flower-icon">Cératostigma</h3>
+				<p>Feuillage flamboyant et aux fleurs bleu intense, le ceratostigma égaie l’automne avec éclat et légèreté..</p>
+			</div>
+
+			<div class="card" 
+				data-title="Abelia"
+				data-images="photos/abelia.jpg, photos/abelia_2.jpg"
+				data-text="C’est une plante très appréciée en jardin pour sa longue floraison, son entretien facile et son port gracieux. Elle attire aussi les abeilles et papillons, ce qui en fait une bonne alliée pour la biodiversité."
+				data-etymologie="Son nom lui a été attribué en l'honneur du docteur Clarke Abel, un médecin britannique et naturaliste du XIXe siècle. Lors d'une expédition en Chine, il a été séduit par la beauté de cette plante et l'a introduite en Europe."
+				data-signification="Elle évoque la grâce simple et la beauté discrète. Très rustique et adaptable à différents sols et climats, elle symbolise aussi la flexibilité et la résilience."
+				data-floraison="juin octobre">
+				<h3><img src="icone/abelia.png" class="flower-icon flower-filter">Abelia</h3>
+				<p>Illumine les jardins de sa douceur parfumée du printemps jusqu’aux premières gelées.</p>
+			</div>
+
+			<div class="card" 
+				data-title="Arbousier"
+				data-scientific="Arbutus unedo"
+				data-images="photos/arbousier.jpg, photos/arbousier_2.jpg"
+				data-text="C’est une plante très appréciée en jardin pour sa longue floraison, son entretien facile et son port gracieux. Elle attire aussi les abeilles et papillons, ce qui en fait une bonne alliée pour la biodiversité."
+				data-etymologie="Unedo viendrait du latin unum edo, « je n’en mange qu’un », en raison du goût fade du fruit."
+				data-signification="Représente la résilience, la fertilité et le lien entre fin et renouveau."
+				data-floraison="octobre décembre">
+				<h3><img src="icone/arbouse.png" class="flower-icon">Arbouse</h3>
+				<p>Symbole de générosité et de beauté méditerranéenne.</p>
+			</div>
+
+			<div class="card" 
+				data-title="Viorne Tin"
+				data-images="photos/viorne.jpg"
+				data-text="C’est une plante très appréciée en jardin pour sa longue floraison, son entretien facile et son port gracieux. Elle attire aussi les abeilles et papillons, ce qui en fait une bonne alliée pour la biodiversité."
+				data-etymologie="Viburnum en latin vient du verbe « viere » signifiant lier, tresser, en rapport avec les rameaux souples de la plante utilisés en vannerie."
+				data-signification="Le Viorne-tin est une plante qui symbolise la loyauté et la protection. Offrir cette fleur peut être un signe de soutien indéfectible et de désir de protéger la personne à qui elle est destinée."
+				data-floraison="novembre avril">
+				<h3><img src="icone/viorne.png" class="flower-icon">Viorne Tin</h3>
+				<p>Symbole de générosité et de beauté méditerranéenne.</p>
+			</div>
+
+			<div class="card"
+				data-title="Rosier des chiens"
+				data-scientific="Rosa canina"
+				data-images="photos/rosier.jpg"
+				data-text="Ce rosier sauvage est commun en Europe. Il donne des cynorhodons, fruits rouges riches en antioxydants. Ses fleurs simples attirent les insectes pollinisateurs."
+				data-etymologie="Canina provient d’une ancienne croyance selon laquelle la racine soignait la rage transmise par les chiens."
+				data-signification="Symbole de beauté simple, de liberté et de guérison."
+				data-floraison="mai juillet">
+				<h3><img src="icone/rosier.png" class="flower-icon">Rosier des chiens</h3>
+				<p>Ses épines défendent un trésor : de délicates fleurs rosées et un fruit riche en vitamine C.</p>
+			</div>
+
+			<div class="card" 
+				data-title="Ipomée d'Inde"
+				data-scientific="Ipomoea indica"
+				data-images="photos/ipomee.jpg"
+				data-text="Plante grimpante vivace aux grandes fleurs violette en entonnoir. Elle croît rapidement et tapisse les murs ou clôtures. Apprécie les climats doux et ensoleillés."
+				data-etymologie="Ipomoea vient du grec ips (ver) et homoios (semblable), en référence à ses tiges volubiles."
+				data-signification="Éphémère beauté, attachement, amour discret."
+				data-floraison="juin octobre">
+				<h3><img src="icone/ipomee.png" class="flower-icon"> Ipomée d’Inde</h3>
+				<p>Elle s’ouvre au matin comme un ciel d’azur, et se referme avant midi.</p>
+			</div>
+
+			<div class="card" 
+				data-title="Dentelaire du Cap"
+				data-scientific="Plumbago auriculata"
+				data-images="photos/dentelaire.jpg"
+				data-text="Arbuste semi-ligneux originaire d’Afrique du Sud, apprécié pour sa floraison généreuse et sa capacité à couvrir rapidement murs ou treillages."
+				data-etymologie="Plumbago signifie « qui soigne le plomb », car elle était utilisée contre le saturnisme. Auriculata fait référence à la forme de ses feuilles (en oreille)."
+				data-signification="Persévérance, fidélité, clarté mentale."
+				data-floraison="mai novembre">
+				<h3><img src="icone/dentelaire.png" class="flower-icon">Dentelaire du Cap</h3>
+				<p>Un bleu tendre et aérien, comme soufflé par les brises du sud.</p>
+			</div>
+			
+			<div class="card" 
+				data-title="Gainier du Canada"
+				data-scientific="Cercis canadensis"
+				data-images="photos/gainier.jpg, photos/gainier_2.jpg"
+				data-text="Arbre ornemental nord-américain à floraison précoce, le gainier produit des grappes de fleurs roses ou pourpres directement sur le tronc (cauliflorie)."
+				data-etymologie="Cercis vient du grec kerkis (navette), par analogie avec la forme des gousses."
+				data-signification="Renaissance, amitié, et courage face à l’adversité."
+				data-floraison="mars mai">
+				<h3><img src="icone/gainier.png" class="flower-icon">Gainier du Canada</h3>
+				<p>Avant même ses feuilles, il se pare d’un voile rose qui éveille les paysages endormis.</p>
+			</div>
+			
+			<div class="card" 
+				data-title="Merisier"
+				data-scientific="Prunus avium"
+				data-images="photos/merisier.jpg, photos/merisier_2.jpg"
+				data-text="Arbre forestier et fruitier, le merisier est l’ancêtre du cerisier cultivé. Il fournit un bois noble et des merises comestibles. A la différence des cerisiers, ses fleurs sont blanches. Il est l'amis des oiseaux, qui le font proliférer en picorant les noyaux des meruses."
+				data-etymologie="Avium vient du latin avis (oiseau), car les oiseaux raffolent de ses fruits."
+				data-signification="Le Merisier incarne l'élégance et la délicatesse. Il est souvent associé à de nouveaux départs et à la renaissance, grâce à sa floraison printanière qui annonce la fin de l'hiver."
+				data-floraison="avril mai">
+				<h3><img src="icone/merisier.png" class="flower-icon">Merisier</h3>
+				<p>Grand arbre vigoureux, à tronc droit et élancé qui peut atteindre 20 mètres de haut.</p>
+			</div>
+			
+			<div class="card" 
+				data-title="Ciste à feuilles de sauge"
+				data-scientific="Cistus salviifolius"
+				data-images="photos/ciste.jpg"
+				data-text="Petit arbrisseau méditerranéen, résistant à la sécheresse, qui pousse sur sols pauvres. Ses fleurs blanches sont éphémères mais se renouvellent chaque jour."
+				data-etymologie="Cistus vient du grec kistos, nom antique du ciste. Salviifolius signifie à 'feuilles de sauge'."
+				data-signification="Force discrète, pureté, adaptation."
+				data-floraison="avril juin">
+				<h3><img src="icone/ciste.png" class="flower-icon flower-filter">Ciste à feuilles de sauge</h3>
+				<p>Rustique et parfumé, le ciste à feuille de sauge sublime vos jardins méditerranéen avec élégance et résistance.</p>
+			</div>
+			
+			<div class="card" 
+				data-title="Ornithogale en ombelle"
+				data-scientific="Ornithogalum umbellatum"
+				data-images="photos/ornithogale.jpg, photos/ornithogale_2.jpg"
+				data-text="Petite plante bulbeuse, l’ornithogale forme des touffes de feuilles fines et produit des fleurs blanches en étoile, regroupées en ombelles."
+				data-etymologie="Ornithogalum vient du grec ornis (oiseau) et gala (lait), soit « lait d’oiseau »."
+				data-signification="Espoir, paix intérieure, consolation."
+				data-floraison="avril mai">
+				<h3><img src="icone/ornithogale.png" class="flower-icon flower-filter">Ornithogale en ombelle</h3>
+				<p>Étoiles blanches au ras du sol, timides mais lumineuses.</p>
+			</div>
+			
+			<div class="card" 
+				data-title="Iris d’Allemagne"
+				data-scientific="Iris germanica"
+				data-images="photos/iris.jpg, photos/iris_2.jpg"
+				data-text="L’Iris d’Allemagne est une plante vivace rhizomateuse très répandue dans les jardins d’ornement. Facile à cultiver, elle apprécie les sols bien drainés et le plein soleil. Sa floraison printanière impressionne par ses grandes fleurs aux pétales ondulés, dans des teintes riches allant du violet au blanc en passant par le jaune. Les fleurs présentent une architecture singulière : trois pétales dressés (étendards) et trois retombants (sépales ou barbes) souvent velus. L’iris attire les insectes pollinisateurs et résiste bien à la sécheresse une fois installé."
+				data-etymologie="Iris vient du grec ancien Ἶρις (Íris), déesse de l’arc-en-ciel, en référence à la diversité des couleurs de ses fleurs. Germanica signifie 'd’Allemagne' , bien que la plante ne soit pas strictement originaire de ce pays."
+				data-signification="Sagesse, royauté, foi, et souvent associé à la puissance et la protection spirituelle. Il est aussi l’emblème de la monarchie française sous forme stylisée (la fleur de lys)."
+				data-floraison="avril juin">
+				<h3><img src="icone/iris.png" class="flower-icon">Iris d’Allemagne</h3>
+				<p>Drapant les jardins de ses plis violets comme une bannière d’aristocratie végétale, il s’élève avec noblesse.</p>
+			</div>
+			
+			<!-- <div class="card"  -->
+				<!-- data-title="" -->
+				<!-- data-scientific="" -->
+				<!-- data-images="photos/.jpg" -->
+				<!-- data-text="" -->
+				<!-- data-etymologie="" -->
+				<!-- data-signification="" -->
+				<!-- data-floraison=""> -->
+				<!-- <h3><img src="icone/.png" class="flower-icon"></h3> -->
+				<!-- <p></p> -->
+			<!-- </div>		 -->
+
+
+		</section>
+	</main>
+
+	<footer class="footer" id="footer">
+		<p id="about-text" class="hidden">&copy; 2025 Created by Ethan</p>
+	</footer>
+
+	<div class="modal" id="flower-modal">
+		<div class="modal-content">
+			<span class="close-btn" id="close-modal">&times;</span>
+			<h2 class="modal-title" id="modal-title"></h2>
+			<p class="modal-scientific" id="modal-scientific"></p>
+			<div id="modal-images" class="modal-images-container"></div>
+			<p class="modal-text" id="modal-text"></p>
+			<div class="modal-infos">
+				<div id="modal-etymologie" class="modal-etymologie"></div>
+				<div id="modal-signification" class="modal-signification"></div>
+			</div>
+			<div id="modal-floraison" class="modal-floraison"></div>
+		</div>
+	</div>
+
+	<script src="scripte.js"></script>
+</body>
+</html>
